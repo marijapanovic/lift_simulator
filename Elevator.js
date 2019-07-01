@@ -21,6 +21,33 @@ class Elevator {
     move(){
         while (this.calls.length > 0) {
             // TODO: pomeri se za jedan sprat
+            let numberOfUpCalls = this.calls.filter((call => call > this.currentFloor)).length;
+            let numberOfDownCalls = this.calls.filter((call => call < this.currentFloor)).length;
+            if(this.direction === "not-moving") {
+                if(numberOfUpCalls > numberOfDownCalls){
+                    this.direction = "up";
+                }
+                else {
+                    this.direction = "down";
+                }
+            }
+            else if(this.direction === "up" &&  numberOfUpCalls === 0){
+                this.direction = "down";
+            }
+            else if(this.direction === "down" &&  numberOfDownCalls === 0){
+                this.direction = "up";
+            }
+
+            // zna se semer lifta pa cu onda da ga pomerim
+            if(this.direction === "up"){
+                this.currentFloor++;
+            }
+            else if(this.direction === "down"){
+                this.currentFloor--;
+            }
+
+            // da izadju ljudi iz lifta, da udju ljudi u lift, da se izbrisu pozivi koji su izvrseni.
+
             return
         }
     }

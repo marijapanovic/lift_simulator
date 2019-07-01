@@ -45,25 +45,7 @@ class Building {
         }
         return new Building(floors);
     }
-    createCall(floor,direction){
-        return new Call(floor, direction);
-    }
-    createElevator(direction, currentFloor, persons, capacity, calls){
-        //let listOfCalls = new Call(floor, direction)
-        return new Elevator(direction, currentFloor, persons, capacity, calls)
-    }
 }
-
-let calls = [];
-calls.push(new Call(1, "up"));
-let nextCall = new Call(1, "up");
-if (nextCall.floor == calls[0].floor && nextCall.direction == calls[0].direction ) {
-    console.log("vec me neko pozvao");
-} else {
-    console.log("nije me niko odatle zvao");
-}
-
-return;
 
 let myBuilding = Building.fromRawData([[],[3],[4],[],[5,6,2,6],[],[]]);
 console.log(myBuilding);
